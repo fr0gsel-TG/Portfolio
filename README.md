@@ -2,14 +2,14 @@
 
 # Иван Кулясов
 
-### Full-Stack Developer · Telegram Mini Apps · Web3 · GameFi
+### Full-Stack Developer · Telegram Mini Apps · Web3 / TON · GameFi
 
-Создаю Telegram Mini Apps и backend-системы с асинхронной архитектурой,
-игровой логикой, Web3-интеграциями и финансовыми операциями.
+Создаю Telegram Mini Apps и backend-системы, где интерфейс, игровая механика
+и реальные деньги в блокчейне работают как единый продукт.
 
-**Telegram Mini Apps** · **Web3 / TON** · **GameFi** · **Backend**
+**Python / Flask** · **Node.js / TypeScript** · **PostgreSQL** · **Firestore** · **TON** · **Telegram Web Apps**
 
-[Telegram](#-контакты) · [Email](#-контакты) · [Featured Project](#-featured-project)
+[Проекты](#-проекты) · [Стек](#-стек) · [Контакты](#-контакты)
 
 </div>
 
@@ -17,203 +17,124 @@
 
 ## 👨‍💻 О себе
 
-Full-Stack Developer, специализирующийся на разработке **Telegram Mini Apps**, асинхронных backend-систем и Web3-сервисов.
+Full-Stack разработчик. Специализация — **Telegram Mini Apps** с платежами в **TON / USDT**:
+маркетплейсы с безопасными сделками, GameFi-экономика, серверная авторизация и защита от накруток.
 
-Основной интерес — проекты, где frontend, backend, игровая механика и финансовая логика должны работать как единая система.
-
-Работаю с Python/Flask и Node.js/Express, PostgreSQL и Firestore, Telegram Web Apps, TON Blockchain и серверной авторизацией.
-
----
-
-# 🚀 Featured Project
-
-## TonStore & StoreTycoon
-
-> Гибридная Web3-экосистема внутри Telegram, объединяющая **e-commerce магазин** и **GameFi-тайкун** в единую экономику.
-
-### 🛍️ TonStore — E-Commerce
-
-Веб-магазин цифровых товаров с каталогом, корзиной, заказами и интеграцией платежей через TON.
-
-<div align="center">
-
-<img src="./assets/tonstore/home.png" alt="TonStore Home" width="800">
-
-</div>
-
-#### Основные возможности
-
-- 📦 Каталог и вариативные товары
-- 🛒 Корзина и обработка заказов
-- 🗄️ PostgreSQL для хранения данных
-- 💎 TON-платежи
-- 🤖 Telegram Web App integration
-- 📱 Адаптация интерфейса под мобильные устройства
-
-<div align="center">
-
-<img src="./assets/tonstore/catalog.png" alt="TonStore Catalog" width="390">
-<img src="./assets/tonstore/cart.png" alt="TonStore Cart" width="390">
-
-</div>
+Мне интересны задачи, где нужно довести продукт до продакшена целиком: схема базы, бизнес-логика денег,
+интеграции (блокчейн, KYC, боты), UI/UX и тесты.
 
 ---
 
-### 🎮 StoreTycoon — GameFi
+# 🚀 Проекты
 
-Игровой tycoon, встроенный в Telegram Mini App.
+## ⭐ TonStore — маркетплейс цифровых товаров за TON и USDT
 
-Игровая логика построена по принципу **Server-Authoritative Architecture**: клиент не является источником правды, а сервер валидирует игровые действия и изменения состояния.
+> Маркетплейс внутри Telegram и на сайте: продавцы выставляют ключи, подарочные карты, подписки и пополнения,
+> покупатели платят криптовалютой, а площадка удерживает деньги до получения товара (escrow).
+> 🔗 [tonstore.onrender.com](https://tonstore.onrender.com) · репозиторий приватный
 
 <div align="center">
-
-<img src="./assets/tonstore/game.jpg" alt="StoreTycoon Game" width="390">
-<img src="./assets/tonstore/vip.jpg" alt="StoreTycoon VIP Store" width="390">
-
+<img src="./assets/tonstore/v2/home-light.jpg" alt="TonStore — главная, светлая тема" width="800">
 </div>
 
-#### Игровая экономика
+<div align="center">
+<img src="./assets/tonstore/v2/mobile-home-dark.jpg" alt="Главная в Mini App, тёмная тема" width="260">
+<img src="./assets/tonstore/v2/mobile-home-light.jpg" alt="Главная в Mini App, светлая тема" width="260">
+<img src="./assets/tonstore/v2/mobile-listing.jpg" alt="Покупка на любую сумму" width="260">
+</div>
 
-- 💰 Генерация и управление ресурсами
-- 🏗️ Покупка и развитие игровых зон
-- ⚡ Система улучшений
-- 💎 VIP-скины и внутриигровые предметы
-- 🪙 TST token economy
-- 🔄 Атомарные операции с игровым состоянием
-- 🛡️ Серверная валидация игровых действий
+#### Что умеет
+- 🛡️ **Безопасные сделки:** статусы заказа, таймеры автоподтверждения и автовозврата, споры с решением модератора.
+- 💎 **Оплата TON и USDT (jetton):** фиксация курса, поиск платежа в блокчейне по комментарию, защита от повторного использования транзакции.
+- 💸 **Автовыплаты продавцам и возвраты покупателям** с горячего кошелька площадки: офлайн-подпись (wallet v5r1), защита от двойной отправки по seqno и `valid_until`, дневные лимиты, аварийная пауза.
+- 🔐 **TON Connect + ton_proof** для подтверждения кошелька продавца.
+- 🪪 **KYC через Didit:** вебхуки с проверкой подписи, уровни продавцов с лимитами и удержанием средств.
+- ⚡ **Автовыдача кодов:** шифрование (Fernet), уникальность кода по HMAC на всю площадку.
+- 💬 **Чат покупатель–продавец** с фильтром контактов (антиобход площадки), отзывы и рейтинг магазинов.
+- 🎛️ **Витрина как у крупных маркетплейсов:** мега-меню каталога, баннеры из админки, виджет «Пополнение» с подбором самого дешёвого предложения, товары «на любую сумму».
+- 🌗 **Дизайн-система** на CSS-токенах: светлая/тёмная/авто тема (в Mini App — тема Telegram), полноэкранный режим, safe-area.
 
----
+<div align="center">
+<img src="./assets/tonstore/v2/catalog-menu.jpg" alt="Мега-меню каталога" width="800">
+</div>
 
-## 🏗️ Архитектура
+<details>
+<summary><b>Ещё скриншоты</b></summary>
+<br>
+<div align="center">
+<img src="./assets/tonstore/v2/home-dark.jpg" alt="Главная, тёмная тема" width="800"><br><br>
+<img src="./assets/tonstore/v2/seller-any-amount.jpg" alt="Объявление «на любую сумму»" width="800"><br><br>
+<img src="./assets/tonstore/v2/admin-storefront.jpg" alt="Админка главной страницы" width="800">
+</div>
+</details>
 
+#### Как устроено
 ```text
-                         ┌─────────────────────┐
-                         │    Telegram User    │
-                         └──────────┬──────────┘
-                                    │
-                                    ▼
-                         ┌─────────────────────┐
-                         │   Telegram Mini App │
-                         └──────────┬──────────┘
-                                    │
-                    ┌───────────────┴───────────────┐
-                    │                               │
-                    ▼                               ▼
-          ┌─────────────────┐             ┌─────────────────┐
-          │    TonStore     │             │  StoreTycoon    │
-          │  Python / Flask │             │ Node.js /       │
-          │                 │             │ Express         │
-          └────────┬────────┘             └────────┬────────┘
-                   │                               │
-                   ▼                               ▼
-          ┌─────────────────┐             ┌─────────────────┐
-          │   PostgreSQL    │             │    Firestore    │
-          └────────┬────────┘             └────────┬────────┘
-                   │                               │
-                   └───────────────┬───────────────┘
-                                   │
-                                   ▼
-                         ┌─────────────────────┐
-                         │   Web3 / Payments   │
-                         │  TON · TST · Coinbase│
-                         └─────────────────────┘
+Telegram Mini App / сайт ──initData (HMAC-SHA256)──► Flask ──► PostgreSQL
+                                                       ├─ toncenter v3: входящие оплаты, состояние кошелька
+                                                       ├─ горячий кошелёк: выплаты и возвраты (офлайн-подпись)
+                                                       ├─ Didit: проверка личности продавцов
+                                                       ├─ Telegram Bot API: уведомления
+                                                       └─ cron → /tasks/tick: таймеры сделок и движок выплат
 ```
+**Стек:** Python, Flask, psycopg 3, PostgreSQL, Jinja2, Bootstrap 5.3, TON Connect, tonutils/pytoniq-core, Render.
+**Качество:** 5 наборов e2e-тестов на настоящем Postgres (сделки, продавцы, чат, выплаты, витрина), работа через PR и CI-деплой.
 
 ---
 
-## 🔐 Engineering Highlights
+## 🎮 StoreTycoon: IT Empire — GameFi-тайкун в Telegram
 
-### Server-Authoritative Game Engine
+> Idle/tycoon-игра про развитие IT-компании: сотрудники, оборудование, комнаты офиса, квесты, кланы и лиги.
+> Игровая валюта TSP и премиальная TST, которая покупается за TON. Общий аккаунт с TonStore по Telegram ID.
 
-Игровое состояние хранится и изменяется на сервере.
+<div align="center">
+<img src="./assets/tonstore/game.jpg" alt="StoreTycoon — офис" width="300">
+<img src="./assets/tonstore/vip.jpg" alt="StoreTycoon — VIP-магазин" width="300">
+</div>
 
-```text
-Client Action
-      │
-      ▼
-Server Validation
-      │
-      ▼
-Game Logic
-      │
-      ▼
-Atomic Transaction
-      │
-      ▼
-Updated State
-      │
-      ▼
-Client Response
-```
+- 🛡️ **Server-authoritative архитектура:** клиент только показывает, все цены, доход и награды считает сервер в транзакции Firestore.
+- 🧮 Серверная формула дохода, лимиты покупок по уровню компании, ограничение начисления дохода по времени (антиспидхак).
+- 🏆 Кланы, лиги с кубками, квесты, рефералы, скины за TST, push-уведомления об офлайн-доходе.
+- 🖼️ Изометрический рендер на HTML5 Canvas, весь клиент на Vanilla JS.
 
-Такой подход позволяет не доверять клиенту баланс, награды и другие критичные игровые значения.
-
-### 🔑 Telegram Authentication
-
-Для проверки Telegram-сессий используется криптографическая валидация `initData` через **HMAC-SHA256**.
-
-### 💾 Data Integrity
-
-Для GameFi-логики используются транзакции Firestore и атомарные обновления состояния.
-
-### 💎 Web3
-
-Интеграция с экосистемой TON включает:
-
-- TON payments
-- `ton://` links
-- Base64 QR-коды
-- Tonkeeper API
-- TST token economy
-- Coinbase Commerce
-
-### 📱 Mobile UX
-
-Интерфейс адаптирован под Telegram Mini Apps и мобильные устройства:
-
-- Responsive UI
-- Glassmorphism
-- iOS Safe Area
-- Dynamic Island adaptation
-- Full-screen iframe overlay
-- Mobile-first interaction
+**Стек:** Node.js, Express, Vercel Serverless, Firebase Firestore (Admin SDK), HTML5 Canvas, Tailwind, Telegram Bot API.
 
 ---
 
-# 🧰 Tech Stack
+## 💎 TonPay для StoreTycoon — покупка TST за TON
 
-### Backend
+> Отдельный сервис оплаты игровой валюты: счёт → оплата через TON Connect → проверка в блокчейне → начисление.
 
-`Python` `Flask` `Node.js` `Express` `Asyncio` `REST API`
+- Начисление в транзакции: параллельные проверки не выдадут TST дважды.
+- Хэш транзакции фиксируется — одна оплата засчитывается только одному счёту; сумма сверяется с ценой на сервере.
+- Крон добивает оплаченные, но не проверенные счета; лимиты запросов и CORS по списку доменов.
 
-### Databases
+**Стек:** Node.js, Vercel Serverless, Firestore, toncenter v3, TON Connect.
 
-`PostgreSQL` `psycopg` `Firestore` `Transactions` `Atomic Updates`
+---
 
-### Telegram & Web3
+# 🧰 Стек
 
-`Telegram Web Apps` `python-telegram-bot` `TON` `Tonkeeper` `Coinbase Commerce`
+**Backend:** `Python` `Flask` `Node.js` `Express` `TypeScript` `REST API`
 
-### Frontend
+**Базы данных:** `PostgreSQL` `psycopg 3` `Firestore` `транзакции` `миграции`
 
-`HTML5` `CSS3` `JavaScript` `Bootstrap 5` `Glassmorphism UI`
+**Telegram и Web3:** `Telegram Mini Apps` `Bot API` `TON` `USDT jetton` `TON Connect` `ton_proof` `wallet v5r1` `toncenter`
 
-### Security & Architecture
+**Frontend:** `HTML5 Canvas` `JavaScript` `Bootstrap 5.3` `Tailwind` `CSS design tokens`
 
-`HMAC-SHA256` `Server-Authoritative Architecture` `Transactional Game Engine`
+**Безопасность:** `HMAC-SHA256` `CSRF` `escrow` `KYC (Didit)` `шифрование Fernet` `антифрод`
 
-### DevOps
-
-`Git` `GitHub Actions` `Render` `Vercel`
+**Инфраструктура и качество:** `Git / PR flow` `Render` `Vercel` `e2e-тесты`
 
 ---
 
 # 🎓 Образование
 
-**СПО — Информационные системы и программирование**  
+**СПО — Информационные системы и программирование**
 Окончено
 
-**ВПО — Разработка информационных систем и систем искусственного интеллекта**  
+**ВПО — Разработка информационных систем и систем искусственного интеллекта**
 Бакалавриат · в процессе
 
 ---
@@ -222,11 +143,11 @@ Client Response
 
 <div align="center">
 
-### Буду рад обсудить интересные проекты
+### Открыт к интересным проектам и сотрудничеству
 
-**Telegram:** [@fr0gsel]
+**Telegram:** [@fr0gsel](https://t.me/fr0gsel)
 
-**Email:** [ivanculyasov@yandex.ru]
+**Email:** [ivanculyasov@yandex.ru](mailto:ivanculyasov@yandex.ru)
 
 </div>
 
